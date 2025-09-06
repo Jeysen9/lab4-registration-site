@@ -1,0 +1,136 @@
+HOW TO COMMIT & PUSH TO GITHUB (BEGINNER TXT GUIDE)
+
+Author: Jeysen9 (fill with your name if needed)
+Files: index.html, style.css, script.js, README.md
+
+-------------------------------------
+0) WHAT "COMMIT" MEANS
+-------------------------------------
+- Working folder: your real files.
+- Staging area: a cart of changes to save.
+- Commit: a snapshot with a message.
+- Push: upload commits to GitHub.
+
+-------------------------------------
+1) ONE-TIME SETUP (NAME + EMAIL)
+-------------------------------------
+Option A: Git GUI
+  Edit -> Options… -> Global
+  User Name: Jeysen9
+  User Email: jeysennyandoro@gmail.com
+  Save.
+
+Option B: Terminal (Git Bash / PowerShell after installing Git)
+  git config --global user.name "Jeysen9"
+  git config --global user.email "jeysennyandoro@gmail.com"
+  git config --global --list
+
+-------------------------------------
+2) MAKE A LOCAL REPO
+-------------------------------------
+Using terminal (inside your project folder):
+  git init
+
+Using Git GUI:
+  Repository -> Create New Repository… -> select your project folder -> Create.
+
+Place these files in the project folder:
+  index.html, style.css, script.js, README.md
+
+-------------------------------------
+3) STAGE -> COMMIT (SAVE SNAPSHOT)
+-------------------------------------
+Git GUI (recommended for beginners)
+  1) Click Rescan.
+  2) Click Stage Changed (files move to green panel).
+  3) In the message box enter:
+       init: add HTML/CSS/JS and README
+  4) Click Commit.
+
+Terminal equivalent:
+  git add .
+  git commit -m "init: add HTML/CSS/JS and README"
+
+-------------------------------------
+4) CREATE GITHUB REPO (ONLINE)
+-------------------------------------
+- Go to https://github.com -> New repository
+- Name: lab4-registration-site -> Public -> Create
+- Copy the HTTPS URL, like:
+  https://github.com/Jeysen9/lab4-registration-site.git
+
+-------------------------------------
+5) CONNECT LOCAL -> GITHUB ("origin")
+-------------------------------------
+Git GUI:
+  Remote -> Add…
+  Name: origin
+  Location: paste your repo URL
+  Add.
+
+Terminal:
+  git branch -M main   (optional: rename local branch to main)
+  git remote add origin https://github.com/Jeysen9/lab4-registration-site.git
+
+-------------------------------------
+6) PUSH (UPLOAD) YOUR COMMIT(S)
+-------------------------------------
+Git GUI:
+  Remote -> Push…
+  Source Branch: master (or main)
+  Destination:   main  (type main if empty)
+  Check: Set upstream (if available)
+  Click Push and sign in if asked.
+
+Terminal:
+  git push -u origin main    (or: git push -u origin master)
+
+-------------------------------------
+7) MAKE MORE COMMITS
+-------------------------------------
+Edit files -> repeat:
+Git GUI:
+  Rescan -> Stage Changed -> write message -> Commit -> Push
+
+Good messages:
+  html: form + labels + fieldsets + aria-live
+  css: responsive two-column form and tight card grid
+  js: inline errors + add card/table + remove sync
+  docs: add README and submission steps
+
+Terminal:
+  git add .
+  git commit -m "js: inline errors + add card/table + remove sync"
+  git push
+
+-------------------------------------
+8) TROUBLESHOOTING
+-------------------------------------
+- 'git is not recognized':
+  Install Git for Windows: https://git-scm.com/download/win
+  Reopen terminal. Verify: git --version
+
+- No files in Git GUI:
+  Repository -> Open… -> select the correct folder, then Rescan.
+
+- 'remote origin not found':
+  Add it: Remote -> Add… (name: origin, paste URL)
+
+- Pushed but GitHub looks empty:
+  Switch branch dropdown to the branch you pushed (master/main),
+  or set default branch in GitHub: Settings -> Branches.
+
+- Auth asks for password:
+  Use a Personal Access Token as password (GitHub -> Settings ->
+  Developer settings -> Personal access tokens (classic) ->
+  Generate new token with repo scope).
+
+-------------------------------------
+9) OPTIONAL: TAG FINAL SUBMISSION
+-------------------------------------
+Terminal:
+  git tag -a v1.0 -m "Lab 4 final submission"
+  git push origin v1.0
+
+-------------------------------------
+DONE! Now your commits are on GitHub and ready to submit.
